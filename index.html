@@ -10,7 +10,7 @@
   <script src="js/aframe-particle-system-component.min.js"></script>
   </head>
   <body>
-    <a-scene particle-system="preset: dust; particleCount: 5000">
+    <a-scene show-desc particle-system="preset: dust; particleCount: 5000">
       <a-camera id="cam" position="-5 2 17"; rotation="0 0 10">
         <a-cursor
           color : #00000;
@@ -50,7 +50,7 @@
       <a-sky color="black"></a-sky>
       <a-entity star-system="count: 1000; radius: 250; depth: 0"></a-entity>
 
-      <a-text position="0 7 -25" visible="true" color="#FFFFFF" wrap-count="50" width="10d" align="center" look-at="#cam" value="Matahari
+      <a-text id="sun-desc" position="0 7 -25" visible="false" color="#FFFFFF" wrap-count="50" width="10d" align="center" look-at="#cam" value="Matahari
       
             Terdiri dari plasma panas dan medan magnet.
             Merupakan pusat dari Tata Surya.
@@ -70,13 +70,12 @@
         "
       ></a-sphere>
 
-      <a-text position="0 2a -17" visible="true" color="#FFFFFF" wrap-count="50" width="5a" align="center" look-at="#cam" value="Merkurius
+      <a-text id="mercury-desc" position="0 2a -17" visible="false" color="#FFFFFF" wrap-count="50" width="5a" align="center" look-at="#cam" value="Merkurius
       
             Planet terkecil dalam Tata Surya.
-            Planet paling dekat dengan Matahari .
             Mengelilingi Matahri dengan kecepatan 180.000 km/jam.
             Suhu di Merkurius bisa mencapai 450 derajat Celcius.
-            Namun, pada malam hari di Merkurius, suhunya bisa turun hingga minus 170 derajat Celcius.
+            Pada malam hari di Merkurius, suhunya bisa turun hingga minus 170 derajat Celcius.
             Satu hari di Merkurius setara dengan 175,97 hari di Bumi."></a-text>
 
       <a-sphere id="mercury" position="0 0 -17" radius=".4" rotation="0 180 0" src="#mercury-texture"
@@ -91,9 +90,10 @@
         "
       ></a-sphere>
 
-      <a-text position="0 2a -12" visible="true" color="#FFFFFF" wrap-count="50" width="5a" align="center" look-at="#cam" value="Venus
+      <a-text id="venus-desc" position="0 2a -12" visible="false" color="#FFFFFF" wrap-count="60" width="6" align="center" look-at="#cam" value="Venus
       
             Jarak Venus dari matahari adalah sejauh 108.106 km.
+            Venus tidak memiliki satelit alami
             Satu hari di Venus setara dengan 243 hari di Bumi.
             Panjang jari-jari venus hampir sama dengan Bumi yaitu 6.051 km.
             Temperatur permukaan Venus adalah sebesar 465 derajat Celcius."></a-text>
@@ -110,7 +110,7 @@
         "
       ></a-sphere>
 
-      <a-text position="0 2a -7" visible="true" color="#FFFFFF" wrap-count="50" width="5a" align="center" look-at="#cam" value="Bumi
+      <a-text id="earth-desc" position="0 2a -7" visible="false" color="#FFFFFF" wrap-count="50" width="5a" align="center" look-at="#cam" value="Bumi
       
             Satu-satunya planet yang memiliki mahluk hidup dan air yang dalam wujud zat cair
             Memiliki jarak 150 juta km dari matahari.
@@ -133,7 +133,7 @@
         <a-sphere position="-1 0 0" radius=".10" color="#DBE0DE" id="moon" src="#moon-texture"></a-sphere>
       </a-entity>
 
-      <a-text position="0 2a -2" visible="true" color="#FFFFFF" wrap-count="50" width="5a" align="center" look-at="#cam" value="Mars
+      <a-text id="mars-desc" position="0 2a -2" visible="false" color="#FFFFFF" wrap-count="50" width="5a" align="center" look-at="#cam" value="Mars
       
             Planet ini merupakan planet terkecil kedua setelah Merkurius.
             Panjang jari-jari Mars adalah sebesar 3.389 km.
@@ -154,7 +154,7 @@
         "
       ></a-sphere>
 
-      <a-text position="0 4.2 5" visible="true" color="#FFFFFF" wrap-count="50" width="7" align="center" look-at="#cam" value="Jupiter
+      <a-text id="jupiter-desc" position="0 4.2 5" visible="false" color="#FFFFFF" wrap-count="50" width="7" align="center" look-at="#cam" value="Jupiter
       
             Jupiter merupakan planet dengan dimensi terbesar.
             Massa Jupiter adalah 318 kali massa Bumi.
@@ -175,7 +175,7 @@
         "
       ></a-sphere>
 
-      <a-text position="0 3.4 15" visible="true" color="#FFFFFF" wrap-count="50" width="6" align="center" look-at="#cam" value="Saturnus
+      <a-text id="saturn-desc" position="0 3.4 15" visible="false" color="#FFFFFF" wrap-count="50" width="6" align="center" look-at="#cam" value="Saturnus
       
             Saturnus merupakan planet terbesar kedua di Tata Surya setelah Jupiter.
             Saturnus juga merupakan sebuah raksasa gas
@@ -202,7 +202,7 @@
         material="color: #A29A87;" rotation="90 0 0" scale="1 1 0.1"></a-entity>
       </a-entity>
 
-      <a-text position="0 3 22" visible="true" color="#FFFFFF" wrap-count="50" width="5a" align="center" look-at="#cam" value="Uranus
+      <a-text id="uranus-desc" position="0 3 22" visible="false" color="#FFFFFF" wrap-count="50" width="5a" align="center" look-at="#cam" value="Uranus
       
             Uranus memiliki warna biru-hijau akibat konsentrasi metana dalam atmosfernya.
             Planet Uranus disusun 80% materi air, metana, dan es amonia.
@@ -225,7 +225,7 @@
         material="color: #FFFFFF;" rotation="-10 90 0" scale="1 1 0.1"></a-entity>
       </a-entity>
 
-      <a-text position="0 2.6 28" visible="true" color="#FFFFFF" wrap-count="50" width="5a" align="center" look-at="#cam" value="Neptunus
+      <a-text id="neptune-desc" position="0 2.6 28" visible="false" color="#FFFFFF" wrap-count="50" width="5a" align="center" look-at="#cam" value="Neptunus
       
             Neptunus terlihat memiliki warna permukaan biru akibat dominasi gas metana pada atmosfernya,
             Neptunus memiliki cincin tipis yang terbentuk dari serpihan es.
@@ -252,7 +252,7 @@
         material="color: #FFFFFF;opacity: 0.8" rotation="90 0 0" scale="1 1 0.1"></a-entity>
       </a-entity>
 
-      <a-text position="0 2a 33" visible="true" color="#FFFFFF" wrap-count="50" width="5a" align="center" look-at="#cam" value="Pluto
+      <a-text id="pluto-desc" position="0 2a 33" visible="false" color="#FFFFFF" wrap-count="50" width="5a" align="center" look-at="#cam" value="Pluto
       
             Pluto adalah Planet Kurcaci
             Pluto sejauh ini diketahui memiliki lima satelit
@@ -273,5 +273,135 @@
         "
       ></a-sphere>
     </a-scene>
+
+    <script type="text/javascript">
+      AFRAME.registerComponent('show-desc', {
+        init: function () {
+          var sceneEl = this.el
+          var sun = sceneEl.querySelector('#sun')
+          var sun_desc = sceneEl.querySelector('#sun-desc')
+          var mercury = sceneEl.querySelector('#mercury')
+          var mercury_desc = sceneEl.querySelector('#mercury-desc')
+          var venus = sceneEl.querySelector('#venus')
+          var venus_desc = sceneEl.querySelector('#venus-desc')
+          var earth = sceneEl.querySelector('#earth')
+          var earth_desc = sceneEl.querySelector('#earth-desc')
+          var mars = sceneEl.querySelector('#mars')
+          var mars_desc = sceneEl.querySelector('#mars-desc')
+          var jupiter = sceneEl.querySelector('#jupiter')
+          var jupiter_desc = sceneEl.querySelector('#jupiter-desc')
+          var saturn = sceneEl.querySelector('#saturn')
+          var saturn_desc = sceneEl.querySelector('#saturn-desc')
+          var uranus = sceneEl.querySelector('#uranus')
+          var uranus_desc = sceneEl.querySelector('#uranus-desc')
+          var neptune = sceneEl.querySelector('#neptune')
+          var neptune_desc = sceneEl.querySelector('#neptune-desc')
+          var pluto = sceneEl.querySelector('#pluto')
+          var pluto_desc = sceneEl.querySelector('#pluto-desc')
+
+          sun.addEventListener('mouseenter', function (evt) {
+            sun_desc.setAttribute('visible', true);
+            console.log("masuk")
+          });
+
+          sun.addEventListener('mouseleave', function (evt) {
+            sun_desc.setAttribute('visible', false);
+            console.log("keluar")
+          });
+
+          mercury.addEventListener('mouseenter', function (evt) {
+            mercury_desc.setAttribute('visible', true);
+            console.log("masuk")
+          });
+
+          mercury.addEventListener('mouseleave', function (evt) {
+            mercury_desc.setAttribute('visible', false);
+            console.log("keluar")
+          });
+
+          venus.addEventListener('mouseenter', function (evt) {
+            venus_desc.setAttribute('visible', true);
+            console.log("masuk")
+          });
+
+          venus.addEventListener('mouseleave', function (evt) {
+            venus_desc.setAttribute('visible', false);
+            console.log("keluar")
+          });
+
+          earth.addEventListener('mouseenter', function (evt) {
+            earth_desc.setAttribute('visible', true);
+            console.log("masuk bumi")
+          });
+
+          earth.addEventListener('mouseleave', function (evt) {
+            earth_desc.setAttribute('visible', false);
+            console.log("keluar bumi")
+          });
+
+          mars.addEventListener('mouseenter', function (evt) {
+            mars_desc.setAttribute('visible', true);
+            console.log("masuk bumi")
+          });
+
+          mars.addEventListener('mouseleave', function (evt) {
+            mars_desc.setAttribute('visible', false);
+            console.log("keluar bumi")
+          });
+
+          jupiter.addEventListener('mouseenter', function (evt) {
+            jupiter_desc.setAttribute('visible', true);
+            console.log("masuk bumi")
+          });
+
+          jupiter.addEventListener('mouseleave', function (evt) {
+            jupiter_desc.setAttribute('visible', false);
+            console.log("keluar bumi")
+          });
+
+          saturn.addEventListener('mouseenter', function (evt) {
+            saturn_desc.setAttribute('visible', true);
+            console.log("masuk bumi")
+          });
+
+          saturn.addEventListener('mouseleave', function (evt) {
+            saturn_desc.setAttribute('visible', false);
+            console.log("keluar bumi")
+          });
+
+          uranus.addEventListener('mouseenter', function (evt) {
+            uranus_desc.setAttribute('visible', true);
+            console.log("masuk bumi")
+          });
+
+          uranus.addEventListener('mouseleave', function (evt) {
+            uranus_desc.setAttribute('visible', false);
+            console.log("keluar bumi")
+          });
+
+          neptune.addEventListener('mouseenter', function (evt) {
+            neptune_desc.setAttribute('visible', true);
+            console.log("masuk bumi")
+          });
+
+          neptune.addEventListener('mouseleave', function (evt) {
+            neptune_desc.setAttribute('visible', false);
+            console.log("keluar bumi")
+          });
+
+          pluto.addEventListener('mouseenter', function (evt) {
+            pluto_desc.setAttribute('visible', true);
+            console.log("masuk bumi")
+          });
+
+          pluto.addEventListener('mouseleave', function (evt) {
+            pluto_desc.setAttribute('visible', false);
+            console.log("keluar bumi")
+          });
+
+          }
+
+      });
+    </script>
   </body>
 </html>
