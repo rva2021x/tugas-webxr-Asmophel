@@ -40,7 +40,7 @@
         crossorigin="anonymous">
         <img id="moon-texture" src="Textures/Moon.png"
         crossorigin="anonymous">
-        
+        <a-asset-item id="asteroids" response-type="arraybuffer" src="Textures/asteroides.glb"></a-asset-item>
       </a-assets>
 
       <a-entity position="16 21 -5" rotation="-25 135 -40">
@@ -49,6 +49,7 @@
 
       <a-sky color="black"></a-sky>
       <a-entity star-system="count: 1000; radius: 250; depth: 0"></a-entity>
+      <a-entity id="asteroid-belt" gltf-model="#asteroids" scale="2.86 2.86 2.86" position="0 0 -25"></a-entity>
 
       <a-text id="sun-desc" position="0 7 -25" visible="false" color="#FFFFFF" wrap-count="50" width="10d" align="center" look-at="#cam" value="Matahari
       
@@ -56,7 +57,7 @@
             Merupakan pusat dari Tata Surya.
             Diameter Matahari 109x diameter Bumi, yaitu 1,4 juta km.
             Suhu permukaan matahari 6.000 derajat celsius,
-            sedangkan suhu inti sebesar 15-20 juta derajat Celsius"></a-text>
+            sedangkan suhu inti sebesar 15-20 juta derajat Celsius."></a-text>
 
       <a-sphere id="sun" position="0 0 -25" radius="4" color="#F5C85D" src="#sun-texture"
         animation__rotation="
@@ -90,7 +91,7 @@
         "
       ></a-sphere>
 
-      <a-text id="venus-desc" position="0 2a -12" visible="false" color="#FFFFFF" wrap-count="60" width="6" align="center" look-at="#cam" value="Venus
+      <a-text id="venus-desc" position="0 2a -13" visible="false" color="#FFFFFF" wrap-count="60" width="6" align="center" look-at="#cam" value="Venus
       
             Jarak Venus dari matahari adalah sejauh 108.106 km.
             Venus tidak memiliki satelit alami
@@ -98,7 +99,7 @@
             Panjang jari-jari venus hampir sama dengan Bumi yaitu 6.051 km.
             Temperatur permukaan Venus adalah sebesar 465 derajat Celcius."></a-text>
 
-      <a-sphere id="venus" position="0 0 -12" radius=".4" src="#venus-texture"
+      <a-sphere id="venus" position="0 0 -13" radius=".4" src="#venus-texture"
         animation__rotation="
           property: rotation;
           from: 0 0 0;
@@ -110,7 +111,7 @@
         "
       ></a-sphere>
 
-      <a-text id="earth-desc" position="0 2a -7" visible="false" color="#FFFFFF" wrap-count="50" width="5a" align="center" look-at="#cam" value="Bumi
+      <a-text id="earth-desc" position="0 2a -8" visible="false" color="#FFFFFF" wrap-count="50" width="5a" align="center" look-at="#cam" value="Bumi
       
             Satu-satunya planet yang memiliki mahluk hidup dan air yang dalam wujud zat cair
             Memiliki jarak 150 juta km dari matahari.
@@ -118,7 +119,7 @@
             Bumi memiliki periode rotasi selama 24 jam dan evolusi selama 365 hari.
             Bumi memiliki satu buah satelit alami yaitu Bulan."></a-text>
 
-      <a-entity id="earth-and-moon" position="0 0 -7"
+      <a-entity id="earth-and-moon" position="0 0 -8"
         animation__rotation="
           property: rotation;
           dur: 2000;
@@ -133,7 +134,7 @@
         <a-sphere position="-1 0 0" radius=".10" color="#DBE0DE" id="moon" src="#moon-texture"></a-sphere>
       </a-entity>
 
-      <a-text id="mars-desc" position="0 2a -2" visible="false" color="#FFFFFF" wrap-count="50" width="5a" align="center" look-at="#cam" value="Mars
+      <a-text id="mars-desc" position="0 2a -4" visible="false" color="#FFFFFF" wrap-count="50" width="5a" align="center" look-at="#cam" value="Mars
       
             Planet ini merupakan planet terkecil kedua setelah Merkurius.
             Panjang jari-jari Mars adalah sebesar 3.389 km.
@@ -142,7 +143,7 @@
             Satu tahun di Mars setara dengan 687 hari, 
             dengan satu hari memiliki lama waktu 24 jam dan 40 menit."></a-text>
 
-      <a-sphere id="mars" position="0 0 -2" radius=".4" src="#mars-texture"
+      <a-sphere id="mars" position="0 0 -4" radius=".4" src="#mars-texture"
         animation__rotation="
           property: rotation;
           dur: 2000;
@@ -161,7 +162,7 @@
             Satelit yang dimiliki oleh Jupiter berjumlah 67, 
             satelit yang terbesar bernama Ganymede.
             Jupiter merupakan jenis planet gas yang memiliki komponen penyusun utama berupa hidrogen dan helium
-            Diameter ekuator Jupiter adalah 143.000 km"></a-text>
+            Diameter ekuator Jupiter adalah 143.000 km."></a-text>
 
       <a-sphere id="jupiter" position="0 0 5" radius="2.5" src="#jupiter-texture"
         animation__rotation="
@@ -178,11 +179,11 @@
       <a-text id="saturn-desc" position="0 3.4 15" visible="false" color="#FFFFFF" wrap-count="50" width="6" align="center" look-at="#cam" value="Saturnus
       
             Saturnus merupakan planet terbesar kedua di Tata Surya setelah Jupiter.
-            Saturnus juga merupakan sebuah raksasa gas
+            Saturnus juga merupakan sebuah raksasa gas.
             Memiliki radius rata-rata sekitar 9 kali radius rata-rata Bumi.
             Saturnus terkenal dengan sistem cincinnya yang unik,
             yang sebagian besar terdiri dari partikel-partikel es dengan sedikit puing-puing batu dan debu.
-            Setidaknya diketahui memiliki 82 satelit alami"></a-text>
+            Setidaknya diketahui memiliki 82 satelit alami."></a-text>
 
       <a-entity id="saturn-container" position="0 0 15"
         animation__rotation="
@@ -207,7 +208,7 @@
             Uranus memiliki warna biru-hijau akibat konsentrasi metana dalam atmosfernya.
             Planet Uranus disusun 80% materi air, metana, dan es amonia.
             Uranus merupakan planet yang memiliki cincin tipis yang terdiri dari material batu dan karbon.
-            Uranus memiliki diameter sebesar 51.118 km,"></a-text>
+            Uranus memiliki diameter sebesar 51.118 km."></a-text>
 
       <a-entity id="uranus-container" position="0 0 22"
         animation__rotation="
@@ -230,7 +231,7 @@
             Neptunus terlihat memiliki warna permukaan biru akibat dominasi gas metana pada atmosfernya,
             Neptunus memiliki cincin tipis yang terbentuk dari serpihan es.
             Neptunus memiliki diameter sebesar 49.244 km atau 3,9 kali diameter bumi.
-            Neptunus memiliki 14 satelit alami"></a-text>
+            Neptunus memiliki 14 satelit alami."></a-text>
 
       <a-entity id="neptune-container" position="0 0 28"
         animation__rotation="
@@ -254,8 +255,8 @@
 
       <a-text id="pluto-desc" position="0 2a 33" visible="false" color="#FFFFFF" wrap-count="50" width="5a" align="center" look-at="#cam" value="Pluto
       
-            Pluto adalah Planet Kurcaci
-            Pluto sejauh ini diketahui memiliki lima satelit
+            Pluto adalah Planet Kurcaci.
+            Pluto sejauh ini diketahui memiliki lima satelit.
             Pluto terdiri dari batu dan es
             Pluto memiliki ukuran yang relatif kecil, 
             kurang lebih 1/6 massa Bulan dan 1/3 volume Bulan.
@@ -301,32 +302,32 @@
 
           sun.addEventListener('mouseenter', function (evt) {
             sun_desc.setAttribute('visible', true);
-            console.log("masuk")
+            console.log("masuk sun")
           });
 
           sun.addEventListener('mouseleave', function (evt) {
             sun_desc.setAttribute('visible', false);
-            console.log("keluar")
+            console.log("keluar sun")
           });
 
           mercury.addEventListener('mouseenter', function (evt) {
             mercury_desc.setAttribute('visible', true);
-            console.log("masuk")
+            console.log("masuk merc")
           });
 
           mercury.addEventListener('mouseleave', function (evt) {
             mercury_desc.setAttribute('visible', false);
-            console.log("keluar")
+            console.log("keluar merc")
           });
 
           venus.addEventListener('mouseenter', function (evt) {
             venus_desc.setAttribute('visible', true);
-            console.log("masuk")
+            console.log("masuk venus")
           });
 
           venus.addEventListener('mouseleave', function (evt) {
             venus_desc.setAttribute('visible', false);
-            console.log("keluar")
+            console.log("keluar venus")
           });
 
           earth.addEventListener('mouseenter', function (evt) {
@@ -341,62 +342,62 @@
 
           mars.addEventListener('mouseenter', function (evt) {
             mars_desc.setAttribute('visible', true);
-            console.log("masuk bumi")
+            console.log("masuk mars")
           });
 
           mars.addEventListener('mouseleave', function (evt) {
             mars_desc.setAttribute('visible', false);
-            console.log("keluar bumi")
+            console.log("keluar mars")
           });
 
           jupiter.addEventListener('mouseenter', function (evt) {
             jupiter_desc.setAttribute('visible', true);
-            console.log("masuk bumi")
+            console.log("masuk jupiter")
           });
 
           jupiter.addEventListener('mouseleave', function (evt) {
             jupiter_desc.setAttribute('visible', false);
-            console.log("keluar bumi")
+            console.log("keluar jupiter")
           });
 
           saturn.addEventListener('mouseenter', function (evt) {
             saturn_desc.setAttribute('visible', true);
-            console.log("masuk bumi")
+            console.log("masuk saturn")
           });
 
           saturn.addEventListener('mouseleave', function (evt) {
             saturn_desc.setAttribute('visible', false);
-            console.log("keluar bumi")
+            console.log("keluar saturn")
           });
 
           uranus.addEventListener('mouseenter', function (evt) {
             uranus_desc.setAttribute('visible', true);
-            console.log("masuk bumi")
+            console.log("masuk uranus")
           });
 
           uranus.addEventListener('mouseleave', function (evt) {
             uranus_desc.setAttribute('visible', false);
-            console.log("keluar bumi")
+            console.log("keluar uranus")
           });
 
           neptune.addEventListener('mouseenter', function (evt) {
             neptune_desc.setAttribute('visible', true);
-            console.log("masuk bumi")
+            console.log("masuk neptune")
           });
 
           neptune.addEventListener('mouseleave', function (evt) {
             neptune_desc.setAttribute('visible', false);
-            console.log("keluar bumi")
+            console.log("keluar neptune")
           });
 
           pluto.addEventListener('mouseenter', function (evt) {
             pluto_desc.setAttribute('visible', true);
-            console.log("masuk bumi")
+            console.log("masuk pluto")
           });
 
           pluto.addEventListener('mouseleave', function (evt) {
             pluto_desc.setAttribute('visible', false);
-            console.log("keluar bumi")
+            console.log("keluar pluto")
           });
 
           }
